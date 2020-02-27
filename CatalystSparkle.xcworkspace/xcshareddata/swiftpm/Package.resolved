@@ -1,0 +1,106 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ApplicationExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ApplicationExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "f834120e265af71bf903be2de85fcb91174f1da5",
+          "version": "1.0.5"
+        }
+      },
+      {
+        "package": "Arguments",
+        "repositoryURL": "https://github.com/elegantchaos/Arguments.git",
+        "state": {
+          "branch": null,
+          "revision": "580f0f7886f1ac2c94358dbf042c5e00a93d69c8",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "BindingsExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/BindingsExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "7431f1c8e03d54f53ec4848818ee53bb0bf34411",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "CommandShell",
+        "repositoryURL": "https://github.com/elegantchaos/CommandShell.git",
+        "state": {
+          "branch": null,
+          "revision": "4a0096751c1d426af828f5551ad98b81a18ab308",
+          "version": "1.1.3"
+        }
+      },
+      {
+        "package": "DictionaryCoding",
+        "repositoryURL": "https://github.com/elegantchaos/DictionaryCoding.git",
+        "state": {
+          "branch": null,
+          "revision": "ae19e456bd550fed8f341e5bae4318333c53a5b4",
+          "version": "1.0.9"
+        }
+      },
+      {
+        "package": "Docopt",
+        "repositoryURL": "https://github.com/elegantchaos/docopt.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "fe5bebd9829d1cf56bf062bca70809a09b7144b6",
+          "version": "0.6.12"
+        }
+      },
+      {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/elegantchaos/Logger.git",
+        "state": {
+          "branch": null,
+          "revision": "287605d02a34b5aba501f5a5d923e04315e9b822",
+          "version": "1.5.1"
+        }
+      },
+      {
+        "package": "ReleaseTools",
+        "repositoryURL": "https://github.com/elegantchaos/ReleaseTools.git",
+        "state": {
+          "branch": null,
+          "revision": "c63cf3a2742aa55b586449aa68c4b05b8041e5ce",
+          "version": "1.0.6"
+        }
+      },
+      {
+        "package": "Runner",
+        "repositoryURL": "https://github.com/elegantchaos/Runner.git",
+        "state": {
+          "branch": null,
+          "revision": "394f2a5a92ac6b81215a3eeaec5ee4c8227a4a47",
+          "version": "1.0.5"
+        }
+      },
+      {
+        "package": "SwiftUIExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/SwiftUIExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "73f97316000da554ebb899168399d23506aea29e",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "XCTestExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/XCTestExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "fb1df618de3ffd23f6979422bd5fde4216ebe453",
+          "version": "1.0.9"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
