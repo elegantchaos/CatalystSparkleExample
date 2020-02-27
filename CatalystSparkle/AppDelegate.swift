@@ -12,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        loadBridge()
         return true
     }
 
@@ -36,7 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let instance = cls.init() as? SparkleBridgePlugin {
                     plugin = instance
                     driver = CatalystSparkleDriver()
-                    plugin.setup(with: driver)
+                    do {
+                        try plugin.setup(with: driver)
+                    } catch {
+                        driver.setupError = error as NSError
+                    }
                 }
             }
         }

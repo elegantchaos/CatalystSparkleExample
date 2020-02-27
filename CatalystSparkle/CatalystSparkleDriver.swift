@@ -4,7 +4,9 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 class CatalystSparkleDriver: SparkleDriver, ObservableObject {
+    var setupError: NSError?
     var updateCallback: UpdateAlertCallback?
+    var canCheck = false
     
     var expected: UInt64 = 0 {
         didSet {
@@ -45,6 +47,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     
     override func showCanCheck(forUpdates canCheckForUpdates: Bool) {
         print("canCheckForUpdates: \(canCheckForUpdates)")
+        canCheck = canCheckForUpdates
     }
     
     override func showUpdatePermissionRequest(_ request: UpdatePermissionRequest, reply: @escaping (UpdatePermissionResponse) -> Void) {

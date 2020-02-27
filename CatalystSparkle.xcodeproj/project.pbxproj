@@ -14,9 +14,12 @@
 		8B34FDF824083B720070C5BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF724083B720070C5BF /* Preview Assets.xcassets */; };
 		8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF924083B720070C5BF /* LaunchScreen.storyboard */; };
 		8B34FE0624083EE60070C5BF /* BridgingDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0424083EE60070C5BF /* BridgingDriver.swift */; };
-		8B34FE0724083EE60070C5BF /* SparkleBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0524083EE60070C5BF /* SparkleBridge.swift */; };
+		8B34FE0724083EE60070C5BF /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0524083EE60070C5BF /* Plugin.swift */; };
 		8B34FE0B240843C20070C5BF /* SparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0A240843C20070C5BF /* SparkleDriver.swift */; };
 		8B34FE0E240843EA0070C5BF /* CatalystSparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */; };
+		8B34FE0F2408464E0070C5BF /* SparkleBridge.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */; platformFilter = maccatalyst; };
+		8B34FE2724084D0C0070C5BF /* Tester.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* Tester.m */; };
+		8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
 		8BBFAA952403F8E80091157A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
 		8BBFAA962403F8F40091157A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -55,11 +58,18 @@
 		8B34FDFC24083B720070C5BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B34FE0324083EE60070C5BF /* SparkleBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkleBridge.h; sourceTree = "<group>"; };
 		8B34FE0424083EE60070C5BF /* BridgingDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgingDriver.swift; sourceTree = "<group>"; };
-		8B34FE0524083EE60070C5BF /* SparkleBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkleBridge.swift; sourceTree = "<group>"; };
+		8B34FE0524083EE60070C5BF /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		8B34FE08240842320070C5BF /* CatalystSparkle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatalystSparkle.entitlements; sourceTree = "<group>"; };
 		8B34FE09240843000070C5BF /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8B34FE0A240843C20070C5BF /* SparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkleDriver.swift; path = CatalystSparkle/SparkleDriver.swift; sourceTree = SOURCE_ROOT; };
 		8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalystSparkleDriver.swift; sourceTree = "<group>"; };
+		8B34FE10240849060070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUTestWebServer.h; path = Dependencies/Sparkle/TestApplication/SUTestWebServer.h; sourceTree = SOURCE_ROOT; };
+		8B34FE2424084ADB0070C5BF /* Tester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tester.h; sourceTree = "<group>"; };
+		8B34FE2524084BB50070C5BF /* Tester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tester.m; sourceTree = "<group>"; };
+		8B34FE2924084E170070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTestWebServer.h; sourceTree = "<group>"; };
+		8B34FE2A24084E170070C5BF /* SUTestWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTestWebServer.m; sourceTree = "<group>"; };
+		8B34FE2C24084E230070C5BF /* test_app_only_dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = test_app_only_dsa_pub.pem; path = "../SparkleBridge/Test Support/test_app_only_dsa_pub.pem"; sourceTree = "<group>"; };
+		8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_app_only_dsa_priv_dont_ever_do_this_for_real.pem; sourceTree = "<group>"; };
 		8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkleBridge.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5E7E8523F6BB3500087E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -95,9 +105,11 @@
 				8B34FDF224083B710070C5BF /* ContentView.swift */,
 				8B34FE0A240843C20070C5BF /* SparkleDriver.swift */,
 				8B34FE09240843000070C5BF /* BridgingHeader.h */,
+				8B34FE10240849060070C5BF /* SUTestWebServer.h */,
 				8B34FDF424083B720070C5BF /* Assets.xcassets */,
 				8B34FDF924083B720070C5BF /* LaunchScreen.storyboard */,
 				8B34FDFC24083B720070C5BF /* Info.plist */,
+				8B34FE2C24084E230070C5BF /* test_app_only_dsa_pub.pem */,
 				8B34FDF624083B720070C5BF /* Preview Content */,
 			);
 			path = CatalystSparkle;
@@ -109,6 +121,18 @@
 				8B34FDF724083B720070C5BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B34FE2824084E070070C5BF /* Test Support */ = {
+			isa = PBXGroup;
+			children = (
+				8B34FE2424084ADB0070C5BF /* Tester.h */,
+				8B34FE2524084BB50070C5BF /* Tester.m */,
+				8B34FE2924084E170070C5BF /* SUTestWebServer.h */,
+				8B34FE2A24084E170070C5BF /* SUTestWebServer.m */,
+				8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */,
+			);
+			path = "Test Support";
 			sourceTree = "<group>";
 		};
 		8B3E649A23EAE62D00B28168 = {
@@ -143,9 +167,10 @@
 			children = (
 				8B34FE0424083EE60070C5BF /* BridgingDriver.swift */,
 				8B34FE0324083EE60070C5BF /* SparkleBridge.h */,
-				8B34FE0524083EE60070C5BF /* SparkleBridge.swift */,
+				8B34FE0524083EE60070C5BF /* Plugin.swift */,
 				8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */,
 				8B5E7E8523F6BB3500087E15 /* Info.plist */,
+				8B34FE2824084E070070C5BF /* Test Support */,
 			);
 			path = SparkleBridge;
 			sourceTree = "<group>";
@@ -236,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B34FE0F2408464E0070C5BF /* SparkleBridge.bundle in Resources */,
 				8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */,
 				8B34FDF824083B720070C5BF /* Preview Assets.xcassets in Resources */,
 				8B34FDF524083B720070C5BF /* Assets.xcassets in Resources */,
@@ -269,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B34FE0624083EE60070C5BF /* BridgingDriver.swift in Sources */,
-				8B34FE0724083EE60070C5BF /* SparkleBridge.swift in Sources */,
+				8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */,
+				8B34FE2724084D0C0070C5BF /* Tester.m in Sources */,
+				8B34FE0724083EE60070C5BF /* Plugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +306,7 @@
 /* Begin PBXTargetDependency section */
 		8B34FE0124083B800070C5BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilter = ios;
+			platformFilter = maccatalyst;
 			target = 8B5E7E8223F6BB3500087E15 /* SparkleBridge */;
 			targetProxy = 8B34FE0024083B800070C5BF /* PBXContainerItemProxy */;
 		};

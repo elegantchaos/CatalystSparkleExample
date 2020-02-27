@@ -7,5 +7,6 @@
 #define CatalystSparkle_Bridging_Header_h
 
 #import "SparkleBridge.h"
+#import "Tester.h"
 
 #endif /* CatalystSparkle_Bridging_Header_h */

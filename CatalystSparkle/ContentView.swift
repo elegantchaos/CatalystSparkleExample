@@ -6,13 +6,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var driver: CatalystSparkleDriver
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            if driver.canCheck {
+                Text("Sparkle bridge working.")
+            } else {
+                Text("Sparkle failed to start up: \(String(describing: driver.setupError))")
+            }
+            if !driver.status.isEmpty {
+                Text("Sparkle Status: \(driver.status)")
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(driver: CatalystSparkleDriver())
     }
 }

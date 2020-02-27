@@ -10,15 +10,22 @@ import Sparkle
 @objc class Plugin: NSResponder, SparkleBridgePlugin, SPUUpdaterDelegate {
     var driver: BridgingDriver!
     var updater: SPUUpdater!
-
-    func setup(with bridge: SparkleBridge) {
+    var tester: Tester?
+    
+    func setup(with bridge: SparkleBridge) throws {
         let hostBundle = Bundle.main
         driver = BridgingDriver(wrapping: bridge)
         updater = SPUUpdater(hostBundle: hostBundle, applicationBundle: hostBundle, userDriver: driver, delegate: self)
-        do {
-            try updater.start()
-        } catch {
-            // handle error
-        }
+        try updater.start()
+    }
+    
+    func setupTester() {
+        tester = Tester()
+        tester?.setup()
+    }
+    
+    func tearDownTester() {
+        tester?.tearDown()
+        tester = nil
     }
 }
