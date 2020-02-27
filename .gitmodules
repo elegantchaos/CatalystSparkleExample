@@ -1,0 +1,3 @@
+[submodule "Dependencies/Sparkle"]
+	path = Dependencies/Sparkle
+	url = git@github.com:elegantchaos/Sparkle
