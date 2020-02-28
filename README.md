@@ -8,13 +8,13 @@ This project illustrates a way to get it working.
 
 ## How To Use This Project
 
-This project is a proof of concept. It contains three components: the bridging plugin, an example host application, and a third plugin which runs as a test webserver (lifted pretty much whole from Sparkle's own test application), allowing you to test the Sparkle mechanism locally. 
+This project is a proof of concept containing an example application.
 
-As things stand, you will probably need to copy bits of this project into your own projects in order to adopt the approach shown here. You'll need to copy/re-create the plugin target, and the parts of the application that load the plugin and implement the `SparkleDriver` protocol. 
+The actual code for bridging Sparkle is contained in a submodule - CatalystSparkle. This supplies a plugin (`SparkleBridge.bundle`) that you include in the application's `Resources/` folder, and two source files (`SparkleBridge.h` and `SparkleDriver.swift`) which you use in your host application.
 
-Eventually I plan to make the plugin (and glue code) into a separate library that your app can just depend on. 
+To use this approach in your own application, you just need the `CatalystSparkle` project from the submodule. You don't need anything from this repository.
 
-At that point I'll update this example application to depend on that library too.
+For the purposes of testing, this project also contains another target which runs as a test webserver. The code for this is lifted pretty much whole from Sparkle's own test application, and wrapped up as a plugin. 
 
 ## The Basic Plan
 
