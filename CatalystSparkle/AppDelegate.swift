@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     driver = CatalystSparkleDriver()
                     do {
                         try plugin.setup(with: driver)
+                        plugin.setupTester()
                     } catch {
                         driver.setupError = error as NSError
                     }
