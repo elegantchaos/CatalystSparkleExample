@@ -25,7 +25,7 @@
 		8B600FBD24091CA90037ADA0 /* TestServer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FB424091C060037ADA0 /* TestServer.bundle */; platformFilter = maccatalyst; };
 		8B600FBF24091E630037ADA0 /* BridgingDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0424083EE60070C5BF /* BridgingDriver.swift */; };
 		8B600FC024091E6A0037ADA0 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0524083EE60070C5BF /* Plugin.swift */; };
-		8B600FC224091F680037ADA0 /* test_app_only_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FC124091F680037ADA0 /* test_app_only_dsa_pub.pem */; };
+		8B600FC224091F680037ADA0 /* test_app_only_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FC124091F680037ADA0 /* test_app_only_dsa_pub.pem */; platformFilter = maccatalyst; };
 		8B600FC624092FF50037ADA0 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FC524092FF50037ADA0 /* appcast.xml */; };
 		8BBFAA952403F8E80091157A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
 		8BBFAA962403F8F40091157A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -102,12 +102,12 @@
 		8B34FE2924084E170070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTestWebServer.h; sourceTree = "<group>"; };
 		8B34FE2A24084E170070C5BF /* SUTestWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTestWebServer.m; sourceTree = "<group>"; };
 		8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_app_only_dsa_priv_dont_ever_do_this_for_real.pem; sourceTree = "<group>"; };
+		8B3F0ABB24095BC600E0F779 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkleBridge.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5E7E8523F6BB3500087E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		8B600F9E24091A400037ADA0 /* sign_update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sign_update; path = Dependencies/Sparkle/bin/sign_update; sourceTree = SOURCE_ROOT; };
+		8B600F9E24091A400037ADA0 /* sign_update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = sign_update; path = TestServer/sign_update; sourceTree = SOURCE_ROOT; };
 		8B600FB424091C060037ADA0 /* TestServer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestServer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B600FB524091C060037ADA0 /* SparkleBridge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SparkleBridge copy-Info.plist"; path = "/Users/developer/Projects/CatalystSparkle/SparkleBridge copy-Info.plist"; sourceTree = "<absolute>"; };
 		8B600FB624091C320037ADA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B600FB724091C4A0037ADA0 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8B600FC124091F680037ADA0 /* test_app_only_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_app_only_dsa_pub.pem; sourceTree = "<group>"; };
@@ -189,12 +189,12 @@
 		8B3E649A23EAE62D00B28168 = {
 			isa = PBXGroup;
 			children = (
+				8B3F0ABB24095BC600E0F779 /* README.md */,
 				8B34FDED24083B710070C5BF /* CatalystSparkle */,
 				8B5E7E8423F6BB3500087E15 /* SparkleBridge */,
 				8B34FE2824084E070070C5BF /* TestServer */,
 				8B3E64A423EAE62D00B28168 /* Products */,
 				8B5E7E7823F6BA8400087E15 /* Frameworks */,
-				8B600FB524091C060037ADA0 /* SparkleBridge copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -452,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CatalystSparkle/CatalystSparkle.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CatalystSparkle/Preview Content\"";
@@ -465,6 +466,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.CatalystSparkle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = CatalystSparkle/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -477,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CatalystSparkle/CatalystSparkle.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CatalystSparkle/Preview Content\"";
@@ -490,6 +494,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.CatalystSparkle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = CatalystSparkle/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -615,6 +621,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = "$(SRCROOT)/SparkleBridge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,6 +633,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = SparkleBridge/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -635,6 +645,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = "$(SRCROOT)/SparkleBridge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -644,6 +657,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = SparkleBridge/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -654,6 +668,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = TestServer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,6 +680,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.testserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = TestServer/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -674,6 +692,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = TestServer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -683,6 +704,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.testserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = TestServer/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;

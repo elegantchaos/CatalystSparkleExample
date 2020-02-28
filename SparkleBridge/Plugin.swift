@@ -21,4 +21,21 @@ import Sparkle
     func checkForUpdates() {
         updater.checkForUpdates()
     }
+    
+    func updater(_ updater: SPUUpdater, didAbortWithError error: Error) {
+        print("aborted \(error)")
+    }
+    
+    func updater(_ updater: SPUUpdater, failedToDownloadUpdate item: SUAppcastItem, error: Error) {
+        print("failed to download update")
+    }
+    func updater(_ updater: SPUUpdater, willInstallUpdate item: SUAppcastItem) {
+        print("Will install update")
+    }
+    func updater(_ updater: SPUUpdater, didFindValidUpdate item: SUAppcastItem) {
+        print("Did find valid update")
+    }
+    func updaterDidNotFindUpdate(_ updater: SPUUpdater) {
+        print("Did not find valid update")
+    }
 }

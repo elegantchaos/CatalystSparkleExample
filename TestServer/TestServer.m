@@ -17,6 +17,7 @@
 @implementation TestServer
 
 static NSString * const UPDATED_VERSION = @"2.0";
+static NSString * const UPDATED_BUILD = @"2";
 
 - (void)setup
 {
@@ -76,9 +77,9 @@ static NSString * const UPDATED_VERSION = @"2.0";
     assert(infoFileExists);
     
     NSMutableDictionary *infoDictionary = [[NSMutableDictionary alloc] initWithContentsOfURL:infoURL];
-    [infoDictionary setObject:UPDATED_VERSION forKey:(__bridge NSString *)kCFBundleVersionKey];
+    [infoDictionary setObject:UPDATED_BUILD forKey:(__bridge NSString *)kCFBundleVersionKey];
     [infoDictionary setObject:UPDATED_VERSION forKey:@"CFBundleShortVersionString"];
-    
+
     BOOL wroteInfoFile = [infoDictionary writeToURL:infoURL atomically:NO];
     assert(wroteInfoFile);
     

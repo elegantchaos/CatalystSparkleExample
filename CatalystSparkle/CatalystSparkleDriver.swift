@@ -106,7 +106,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     
     override func showUpdaterError(_ error: Error, acknowledgement: @escaping () -> Void) {
         print("showUpdaterError")
-        status = "Failed to launch installer."
+        status = "Failed to launch installer.\n\(error)"
         okCallback = acknowledgement
     }
     
