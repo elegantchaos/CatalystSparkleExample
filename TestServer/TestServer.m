@@ -89,7 +89,7 @@ static NSString * const UPDATED_VERSION = @"2.0";
             assert(serverDirectoryPath != nil);
             
             // Create the archive for our update
-            NSString *zipName = @"Sparkle_Test_App.zip";
+            NSString *zipName = [NSString stringWithFormat:@"%@.zip", mainBundle.infoDictionary[@"CFBundleName"]];
             NSTask *dittoTask = [[NSTask alloc] init];
             dittoTask.launchPath = @"/usr/bin/ditto";
             dittoTask.arguments = @[@"-c", @"-k", @"--sequesterRsrc", @"--keepParent", (NSString *)destinationBundleURL.lastPathComponent, zipName];
@@ -139,7 +139,7 @@ static NSString * const UPDATED_VERSION = @"2.0";
                 abort();
             }
             
-            NSString * const appcastName = @"sparkletestcast";
+            NSString * const appcastName = @"appcast";
             NSString * const appcastExtension = @"xml";
             
             // Copy our appcast over to the server directory
@@ -166,7 +166,10 @@ static NSString * const UPDATED_VERSION = @"2.0";
             
             NSUInteger numberOfSignatureReplacements = [appcastContents replaceOccurrencesOfString:@"$INSERT_DSA_SIGNATURE" withString:signature options:NSLiteralSearch range:NSMakeRange(0, appcastContents.length)];
             assert(numberOfSignatureReplacements == 1);
-            
+
+            NSUInteger numberOfZipReplacements = [appcastContents replaceOccurrencesOfString:@"$INSERT_ZIP_NAME" withString:zipName options:NSLiteralSearch range:NSMakeRange(0, appcastContents.length)];
+            assert(numberOfZipReplacements == 1);
+
             NSError *writeAppcastError = nil;
             if (![appcastContents writeToURL:appcastDestinationURL atomically:NO encoding:NSUTF8StringEncoding error:&writeAppcastError]) {
                 NSLog(@"Failed to write updated appcast with error %@", writeAppcastError);

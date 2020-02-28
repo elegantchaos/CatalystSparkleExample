@@ -19,7 +19,7 @@
 		8B600FA624091C060037ADA0 /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
 		8B600FA724091C060037ADA0 /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
 		8B600FAA24091C060037ADA0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
-		8B600FAC24091C060037ADA0 /* sparkletestcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FA024091AE60037ADA0 /* sparkletestcast.xml */; };
+		8B600FAC24091C060037ADA0 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FA024091AE60037ADA0 /* appcast.xml */; };
 		8B600FAD24091C060037ADA0 /* sign_update in Resources */ = {isa = PBXBuildFile; fileRef = 8B600F9E24091A400037ADA0 /* sign_update */; };
 		8B600FAE24091C060037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */; };
 		8B600FB024091C060037ADA0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -106,7 +106,7 @@
 		8B5E7E8523F6BB3500087E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8B600F9E24091A400037ADA0 /* sign_update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sign_update; path = Dependencies/Sparkle/bin/sign_update; sourceTree = SOURCE_ROOT; };
-		8B600FA024091AE60037ADA0 /* sparkletestcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sparkletestcast.xml; path = Dependencies/Sparkle/TestApplication/sparkletestcast.xml; sourceTree = SOURCE_ROOT; };
+		8B600FA024091AE60037ADA0 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = appcast.xml; path = Dependencies/Sparkle/TestApplication/appcast.xml; sourceTree = SOURCE_ROOT; };
 		8B600FB424091C060037ADA0 /* TestServer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestServer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B600FB524091C060037ADA0 /* SparkleBridge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SparkleBridge copy-Info.plist"; path = "/Users/developer/Projects/CatalystSparkle/SparkleBridge copy-Info.plist"; sourceTree = "<absolute>"; };
 		8B600FB624091C320037ADA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */,
 				8B600FB624091C320037ADA0 /* Info.plist */,
 				8B600F9E24091A400037ADA0 /* sign_update */,
-				8B600FA024091AE60037ADA0 /* sparkletestcast.xml */,
+				8B600FA024091AE60037ADA0 /* appcast.xml */,
 			);
 			path = TestServer;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 				8B34FDE924083B710070C5BF /* Frameworks */,
 				8B34FDEA24083B710070C5BF /* Resources */,
 				8B600FC3240920B00037ADA0 /* CopyFiles */,
-				8B600FC4240920DD0037ADA0 /* ShellScript */,
+				8B600FC4240920DD0037ADA0 /* Copy XPCs and Re-sign All The Things */,
 			);
 			buildRules = (
 			);
@@ -358,7 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B600FAC24091C060037ADA0 /* sparkletestcast.xml in Resources */,
+				8B600FAC24091C060037ADA0 /* appcast.xml in Resources */,
 				8B600FAD24091C060037ADA0 /* sign_update in Resources */,
 				8B600FAE24091C060037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */,
 			);
@@ -367,7 +367,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8B600FC4240920DD0037ADA0 /* ShellScript */ = {
+		8B600FC4240920DD0037ADA0 /* Copy XPCs and Re-sign All The Things */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,13 +376,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Copy XPCs and Re-sign All The Things";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n#  Created by Sam Deane on 28/02/20.\n#  All code (c) 2020 - present day, Elegant Chaos Limited.\n# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\nset -e\n\nif [[ \"$PLATFORM_NAME\" != \"macosx\" ]]\nthen\n  exit 0\nfi\n\necho \"Copying XPCs\"\n\nMAC_PRODUCTS_DIR=${BUILT_PRODUCTS_DIR}/../${CONFIGURATION}\nBUILT_XPCSERVICES_DIR=${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/XPCServices\n\nXPCS=(org.sparkle-project.InstallerStatus.xpc org.sparkle-project.InstallerLauncher.xpc org.sparkle-project.InstallerConnection.xpc)\nfor name in ${XPCS[@]}\ndo\n    echo \"Copying $name\"\n    ditto \"$MAC_PRODUCTS_DIR/$name\" \"$BUILT_XPCSERVICES_DIR/$name\"\ndone\n";
+			shellScript = "# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n#  Created by Sam Deane on 28/02/20.\n#  All code (c) 2020 - present day, Elegant Chaos Limited.\n# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\nset -e\n\nif [[ \"$PLATFORM_NAME\" != \"macosx\" ]]\nthen\n  exit 0\nfi\n\necho \"Copying XPCs\"\n\nMAC_PRODUCTS_DIR=${BUILT_PRODUCTS_DIR}/../${CONFIGURATION}\nBUILT_XPCSERVICES_DIR=${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/XPCServices\nBUILT_RESOURCES_DIR=${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources\n\nXPCS=(org.sparkle-project.InstallerStatus.xpc org.sparkle-project.InstallerLauncher.xpc org.sparkle-project.InstallerConnection.xpc)\nfor name in ${XPCS[@]}\ndo\n    echo \"Copying $name\"\n    ditto \"$MAC_PRODUCTS_DIR/$name\" \"$BUILT_XPCSERVICES_DIR/$name\"\ndone\n\n\necho \"Re-signing embedded frameworks.\"\n\n# By default, use the configured code signing identity for the project/target\nIDENTITY=\"${EXPANDED_CODE_SIGN_IDENTITY}\"\nif [ \"$IDENTITY\" == \"\" ]\nthen\n    # If a code signing identity is not specified, use ad hoc signing\n    IDENTITY=\"-\"\nfi\n\n#codesign --verbose --force --deep --options runtime --sign \"$IDENTITY\" \"$BUILT_RESOURCES_DIR/SparkleBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/AutoUpdate.app\"\ncodesign --verbose --force --deep --options runtime --sign \"$IDENTITY\" \"$BUILT_RESOURCES_DIR/SparkleBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Updater.app\"\ncodesign --verbose --force --deep --options runtime --sign \"$IDENTITY\" \"$BUILT_RESOURCES_DIR/SparkleBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A\"\ncodesign --verbose --force --deep --options runtime --sign \"$IDENTITY\" \"$BUILT_RESOURCES_DIR/SparkleBridge.bundle\"\n\nfor name in ${XPCS[@]}\ndo\n    echo \"Re-signing $name\"\n    codesign --verbose --force --deep --options runtime --sign \"$IDENTITY\" \"$BUILT_XPCSERVICES_DIR/$name\"\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -451,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CatalystSparkle/CatalystSparkle.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CatalystSparkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 2H48644JM2;
@@ -475,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CatalystSparkle/CatalystSparkle.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CatalystSparkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 2H48644JM2;

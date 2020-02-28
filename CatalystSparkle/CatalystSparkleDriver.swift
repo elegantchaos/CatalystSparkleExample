@@ -7,6 +7,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     var setupError: NSError?
     var updateCallback: UpdateAlertCallback?
     var installCallback: UpdateStatusCallback?
+    var okCallback: (() -> Void)?
     
     var canCheck = false
     
@@ -99,11 +100,14 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     
     override func showUpdateNotFound(acknowledgement: @escaping () -> Void) {
         print("showUpdaterError")
+        status = "Update Not Found"
+        okCallback = acknowledgement
     }
     
     override func showUpdaterError(_ error: Error, acknowledgement: @escaping () -> Void) {
         print("showUpdaterError")
         status = "Failed to launch installer."
+        okCallback = acknowledgement
     }
     
     override func showDownloadInitiated(completion downloadUpdateStatusCompletion: @escaping DownloadStatusCallback) {
@@ -152,6 +156,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     override func showUpdateInstallationDidFinish(acknowledgement: @escaping () -> Void) {
         print("showUpdateInstallationDidFinish")
         status = "Installation finished."
+        okCallback = acknowledgement
     }
     
     override func dismissUpdateInstallation() {

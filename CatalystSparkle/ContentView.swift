@@ -46,9 +46,15 @@ struct ContentView: View {
                 InstallView(driver: driver)
             }
             
-            Spacer()
-            
-        }
+            if driver.okCallback != nil {
+                Button(action: {
+                    self.driver.okCallback?()
+                    self.driver.okCallback = nil
+                }) {
+                    Text("OK")
+                }
+            }
+        }.padding()
     }
 }
 

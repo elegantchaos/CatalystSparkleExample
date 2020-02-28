@@ -25,7 +25,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>test_app_only_dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://localhost:1337/sparkletestcast.xml</string>
+	<string>http://localhost:1337/appcast.xml</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
