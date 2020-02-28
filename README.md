@@ -56,9 +56,7 @@ When it comes to opportunities for re-use, there's no reason in the long run why
 
 This example includes another plugin: TestServer.
 
-What this does when its run is make a copy of the application, increase its bundle version to 2, re-signs it, and zips it up. 
-
-It then serves this zip in an appcast, on `http://localhost:1337/appcast.xml`.
+What this does when its run is make a copy of the application, increase its bundle version to 2, re-sign it, and zips it up. It then serves this zip in an appcast, on `http://localhost:1337/appcast.xml`.
 
 The main application is set up to look at this appcast for its updates. This allows us to test the Sparkle mechanism without needing external servers.
 

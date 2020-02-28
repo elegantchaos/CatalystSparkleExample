@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>SUEnableAutomaticChecks</key>
-	<true/>
+	<false/>
 	<key>SUEnableSystemProfiling</key>
 	<false/>
 	<key>SUPublicDSAKeyFile</key>
