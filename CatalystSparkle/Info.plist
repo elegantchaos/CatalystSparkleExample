@@ -26,6 +26,21 @@
 	<string>test_app_only_dsa_pub.pem</string>
 	<key>SUFeedURL</key>
 	<string>http://localhost:1337/sparkletestcast.xml</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+		<key>127.0.0.1</key>
+		<dict>
+			<key>New item</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

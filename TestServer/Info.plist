@@ -21,6 +21,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Elegant Chaos. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string>SparkleBridge.Plugin</string>
+	<string>TestServer</string>
 </dict>
 </plist>

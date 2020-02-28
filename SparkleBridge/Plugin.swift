@@ -17,4 +17,8 @@ import Sparkle
         updater = SPUUpdater(hostBundle: hostBundle, applicationBundle: hostBundle, userDriver: driver, delegate: self)
         try updater.start()
     }
+    
+    func checkForUpdates() {
+        updater.checkForUpdates()
     }
+}

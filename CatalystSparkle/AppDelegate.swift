@@ -6,15 +6,21 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var plugin: SparkleBridgePlugin!
+    var plugin: SparkleBridgePlugin?
+    var testServer: TestServerPlugin?
     var driver: CatalystSparkleDriver!
-    var testServer: TestServerPlugin!
+    
+    class var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         loadBridge()
+        loadTestServer()
         return true
     }
     
@@ -40,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plugin = instance
                     driver = CatalystSparkleDriver()
                     do {
-                        try plugin.setup(with: driver)
+                        try plugin?.setup(with: driver)
                     } catch {
                         driver.setupError = error as NSError
                     }
@@ -55,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let cls = bundle.principalClass as? NSObject.Type {
                 if let instance = cls.init() as? TestServerPlugin {
                     testServer = instance
-                    testServer.setup()
+                    testServer?.setup()
                 }
             }
         }

@@ -9,15 +9,29 @@ struct ContentView: View {
     @ObservedObject var driver: CatalystSparkleDriver
     
     var body: some View {
-        VStack {
-            if driver.canCheck {
-                Text("Sparkle bridge working.")
-            } else {
+        VStack(spacing: 8) {
+            if AppDelegate.shared.plugin == nil {
                 Text("Sparkle failed to start up: \(String(describing: driver.setupError))")
+            } else if AppDelegate.shared.testServer == nil {
+                Text("Test server failed to start up.")
+            } else {
+                VStack {
+                    Text("Sparkle bridge working.")
+                    
+                    if driver.canCheck {
+                        Text("Can check for updates.")
+                    }
+                    
+                    if !driver.status.isEmpty {
+                        Text("Sparkle Status: \(driver.status)")
+                    }
+                    
+                    Button(action: { AppDelegate.shared.plugin?.checkForUpdates() }) {
+                        Text("Check")
+                    }
+                }
             }
-            if !driver.status.isEmpty {
-                Text("Sparkle Status: \(driver.status)")
-            }
+            
         }
     }
 }

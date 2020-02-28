@@ -16,11 +16,6 @@
 		8B34FE0B240843C20070C5BF /* SparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0A240843C20070C5BF /* SparkleDriver.swift */; };
 		8B34FE0E240843EA0070C5BF /* CatalystSparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */; };
 		8B34FE0F2408464E0070C5BF /* SparkleBridge.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */; platformFilter = maccatalyst; };
-		8B34FE2724084D0C0070C5BF /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
-		8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
-		8B600F9D24091A1D0037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */; };
-		8B600F9F24091A400037ADA0 /* sign_update in Resources */ = {isa = PBXBuildFile; fileRef = 8B600F9E24091A400037ADA0 /* sign_update */; };
-		8B600FA124091AE60037ADA0 /* sparkletestcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FA024091AE60037ADA0 /* sparkletestcast.xml */; };
 		8B600FA624091C060037ADA0 /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
 		8B600FA724091C060037ADA0 /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
 		8B600FAA24091C060037ADA0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
@@ -61,6 +56,15 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8B600FB024091C060037ADA0 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B600FC3240920B00037ADA0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +238,8 @@
 				8B34FDE824083B710070C5BF /* Sources */,
 				8B34FDE924083B710070C5BF /* Frameworks */,
 				8B34FDEA24083B710070C5BF /* Resources */,
+				8B600FC3240920B00037ADA0 /* CopyFiles */,
+				8B600FC4240920DD0037ADA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -345,9 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B600FA124091AE60037ADA0 /* sparkletestcast.xml in Resources */,
-				8B600F9F24091A400037ADA0 /* sign_update in Resources */,
-				8B600F9D24091A1D0037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +365,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B600FC4240920DD0037ADA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n#  Created by Sam Deane on 28/02/20.\n#  All code (c) 2020 - present day, Elegant Chaos Limited.\n# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\nset -e\n\nif [[ \"$PLATFORM_NAME\" != \"macosx\" ]]\nthen\n  exit 0\nfi\n\necho \"Copying XPCs\"\n\nMAC_PRODUCTS_DIR=${BUILT_PRODUCTS_DIR}/../${CONFIGURATION}\nBUILT_XPCSERVICES_DIR=${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/XPCServices\n\nXPCS=(org.sparkle-project.InstallerStatus.xpc org.sparkle-project.InstallerLauncher.xpc org.sparkle-project.InstallerConnection.xpc)\nfor name in ${XPCS[@]}\ndo\n    echo \"Copying $name\"\n    ditto \"$MAC_PRODUCTS_DIR/$name\" \"$BUILT_XPCSERVICES_DIR/$name\"\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B34FDE824083B710070C5BF /* Sources */ = {
@@ -380,10 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */,
 				8B600FBF24091E630037ADA0 /* BridgingDriver.swift in Sources */,
 				8B600FC024091E6A0037ADA0 /* Plugin.swift in Sources */,
-				8B34FE2724084D0C0070C5BF /* TestServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +658,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.testserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = TestServer/BridgingHeader.h;
@@ -657,7 +678,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.testserver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = TestServer/BridgingHeader.h;
