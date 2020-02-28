@@ -33,7 +33,7 @@ In our case, the plugin links against AppKit and Sparkle, and embeds the Sparkle
 
 The Catalyst-based app embeds the plugin (in its `Resources/` folder). The various Sparkle-related keys go into the App's `Info.plist` file, as normal. Similarly, it is the app embeds various Sparkle XPC helpers (in its `XPCServices` folder). 
 
-Because they are targetting different architectures, the app and Sparkle get built into different locations (`Debug-maccatalyst/` vs `Debug/`, for a `Debug` configuration). As a result, its cleaner to use a script phase to copy over the XPC bits. This script also doubles up as a place to re-sign all the embedded executables, which is essential if you want to notarize your app.
+Because they are targetting different architectures, the app and Sparkle get built into different locations (`Debug-maccatalyst/` vs `Debug/`, for a `Debug` configuration). As a result, its cleaner to use a script phase to copy over the XPC bits. 
 
 At runtime, the app loads the plugin and creates an instance of its primary class. This is the object that forms the bridge between the two worlds. The app then calls a method on this bridge, and passes over to it another object that it has implemented. Methods on this object get called when Sparkle needs to show some user interface. Some of these methods pass callback blocks to the app - it calls these when it needs to pass back user responses to Sparkle.  
 
@@ -52,3 +52,48 @@ Clearly, having to make your own user interface for Sparkle is more work, especi
 
 When it comes to opportunities for re-use, there's no reason in the long run why a UIKit or SwiftUI based Sparkle interface could not be developed and shared (either by the Sparkle project, or as a separate resource by someone else).
 
+## The Test Server
+
+This example includes another plugin: TestServer.
+
+What this does when its run is make a copy of the application, increase its bundle version to 2, re-signs it, and zips it up. 
+
+It then serves this zip in an appcast, on `http://localhost:1337/appcast.xml`.
+
+The main application is set up to look at this appcast for its updates. This allows us to test the Sparkle mechanism without needing external servers.
+
+Most of the code for this plugin is taken verbatim from Sparkle's own Test Application, which uses the same approach.
+
+## Sandboxing, Codesigning & Sparkle
+
+This project is set up to sign the application with my keys. You will need to modify it to use yours instead.
+
+For the purposes of this demo, I've turned sandboxing off. 
+
+This is not because using Sparkle from a plugin doesn't work with it on. It's just because the TestServer plugin needs to use `xcrun` to re-sign its copy of the application, and that won't work in a sandbox. The original Sparkle test application uses an XPC service to get round this, but I wanted to avoid that complication here.   
+
+In general these days you will probably want to turn sandboxing on. 
+
+This means that you'll want to use the `2.x` branch of Sparkle.
+
+When you embed Sparkle and the various Sparkle XPC services in your app, you will also need to arrange to sign them properly; especially if you want to notarize the app.
+
+Xcode is usually quite good now at managing the re-signing of embedded things for you. However, as mentioned above, the fact that the Sparkle-related things are built for a different architecture makes it hard to get Xcode to embed them properly, so I'm doing it in a script phase.
+
+This script phase can also doubles up as a place to re-sign all the embedded executables.
+
+I'm not doing it in this example, but here's a snippet of the sort of code you'll need:
+
+```
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Updater.app"
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A"
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/SparkleBridge.bundle"
+
+for name in ${XPCS[@]}
+do
+    echo "Re-signing $name"
+    codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_XPCSERVICES_DIR/$name"
+done
+```
+
+This script expects the various Sparkle products to be signed already, so you may also have to modify your copy of Sparkle slightly to sign everything with your keys. 
