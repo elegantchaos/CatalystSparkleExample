@@ -13,13 +13,25 @@
 		8B34FDF524083B720070C5BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF424083B720070C5BF /* Assets.xcassets */; };
 		8B34FDF824083B720070C5BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF724083B720070C5BF /* Preview Assets.xcassets */; };
 		8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF924083B720070C5BF /* LaunchScreen.storyboard */; };
-		8B34FE0624083EE60070C5BF /* BridgingDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0424083EE60070C5BF /* BridgingDriver.swift */; };
-		8B34FE0724083EE60070C5BF /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0524083EE60070C5BF /* Plugin.swift */; };
 		8B34FE0B240843C20070C5BF /* SparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0A240843C20070C5BF /* SparkleDriver.swift */; };
 		8B34FE0E240843EA0070C5BF /* CatalystSparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */; };
 		8B34FE0F2408464E0070C5BF /* SparkleBridge.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */; platformFilter = maccatalyst; };
-		8B34FE2724084D0C0070C5BF /* Tester.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* Tester.m */; };
+		8B34FE2724084D0C0070C5BF /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
 		8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
+		8B600F9C240918330037ADA0 /* test_app_only_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FE2C24084E230070C5BF /* test_app_only_dsa_pub.pem */; platformFilter = maccatalyst; };
+		8B600F9D24091A1D0037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */; };
+		8B600F9F24091A400037ADA0 /* sign_update in Resources */ = {isa = PBXBuildFile; fileRef = 8B600F9E24091A400037ADA0 /* sign_update */; };
+		8B600FA124091AE60037ADA0 /* sparkletestcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FA024091AE60037ADA0 /* sparkletestcast.xml */; };
+		8B600FA624091C060037ADA0 /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
+		8B600FA724091C060037ADA0 /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
+		8B600FAA24091C060037ADA0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
+		8B600FAC24091C060037ADA0 /* sparkletestcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FA024091AE60037ADA0 /* sparkletestcast.xml */; };
+		8B600FAD24091C060037ADA0 /* sign_update in Resources */ = {isa = PBXBuildFile; fileRef = 8B600F9E24091A400037ADA0 /* sign_update */; };
+		8B600FAE24091C060037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */; };
+		8B600FB024091C060037ADA0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B600FBD24091CA90037ADA0 /* TestServer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FB424091C060037ADA0 /* TestServer.bundle */; platformFilter = maccatalyst; };
+		8B600FBF24091E630037ADA0 /* BridgingDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0424083EE60070C5BF /* BridgingDriver.swift */; };
+		8B600FC024091E6A0037ADA0 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0524083EE60070C5BF /* Plugin.swift */; };
 		8BBFAA952403F8E80091157A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
 		8BBFAA962403F8F40091157A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -32,9 +44,26 @@
 			remoteGlobalIDString = 8B5E7E8223F6BB3500087E15;
 			remoteInfo = SparkleBridge;
 		};
+		8B600FBB24091C9E0037ADA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B3E649B23EAE62D00B28168 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B600FA324091C060037ADA0;
+			remoteInfo = TestServer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8B600FAF24091C060037ADA0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B600FB024091C060037ADA0 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BBFAA982404013B0091157A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,8 +93,8 @@
 		8B34FE0A240843C20070C5BF /* SparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkleDriver.swift; path = CatalystSparkle/SparkleDriver.swift; sourceTree = SOURCE_ROOT; };
 		8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalystSparkleDriver.swift; sourceTree = "<group>"; };
 		8B34FE10240849060070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUTestWebServer.h; path = Dependencies/Sparkle/TestApplication/SUTestWebServer.h; sourceTree = SOURCE_ROOT; };
-		8B34FE2424084ADB0070C5BF /* Tester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tester.h; sourceTree = "<group>"; };
-		8B34FE2524084BB50070C5BF /* Tester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tester.m; sourceTree = "<group>"; };
+		8B34FE2424084ADB0070C5BF /* TestServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestServer.h; sourceTree = "<group>"; };
+		8B34FE2524084BB50070C5BF /* TestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServer.m; sourceTree = "<group>"; };
 		8B34FE2924084E170070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTestWebServer.h; sourceTree = "<group>"; };
 		8B34FE2A24084E170070C5BF /* SUTestWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUTestWebServer.m; sourceTree = "<group>"; };
 		8B34FE2C24084E230070C5BF /* test_app_only_dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = test_app_only_dsa_pub.pem; path = "../SparkleBridge/Test Support/test_app_only_dsa_pub.pem"; sourceTree = "<group>"; };
@@ -73,6 +102,12 @@
 		8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkleBridge.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5E7E8523F6BB3500087E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		8B600F9E24091A400037ADA0 /* sign_update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sign_update; path = Dependencies/Sparkle/bin/sign_update; sourceTree = SOURCE_ROOT; };
+		8B600FA024091AE60037ADA0 /* sparkletestcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sparkletestcast.xml; path = Dependencies/Sparkle/TestApplication/sparkletestcast.xml; sourceTree = SOURCE_ROOT; };
+		8B600FB424091C060037ADA0 /* TestServer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestServer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B600FB524091C060037ADA0 /* SparkleBridge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SparkleBridge copy-Info.plist"; path = "/Users/developer/Projects/CatalystSparkle/SparkleBridge copy-Info.plist"; sourceTree = "<absolute>"; };
+		8B600FB624091C320037ADA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B600FB724091C4A0037ADA0 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8BBFAA942403F8E80091157A /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +124,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BBFAA952403F8E80091157A /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B600FA924091C060037ADA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B600FAA24091C060037ADA0 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,16 +166,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8B34FE2824084E070070C5BF /* Test Support */ = {
+		8B34FE2824084E070070C5BF /* TestServer */ = {
 			isa = PBXGroup;
 			children = (
-				8B34FE2424084ADB0070C5BF /* Tester.h */,
-				8B34FE2524084BB50070C5BF /* Tester.m */,
+				8B34FE2424084ADB0070C5BF /* TestServer.h */,
+				8B34FE2524084BB50070C5BF /* TestServer.m */,
+				8B600FB724091C4A0037ADA0 /* BridgingHeader.h */,
 				8B34FE2924084E170070C5BF /* SUTestWebServer.h */,
 				8B34FE2A24084E170070C5BF /* SUTestWebServer.m */,
 				8B34FE2D24084E230070C5BF /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem */,
+				8B600FB624091C320037ADA0 /* Info.plist */,
+				8B600F9E24091A400037ADA0 /* sign_update */,
+				8B600FA024091AE60037ADA0 /* sparkletestcast.xml */,
 			);
-			path = "Test Support";
+			path = TestServer;
 			sourceTree = "<group>";
 		};
 		8B3E649A23EAE62D00B28168 = {
@@ -140,8 +187,10 @@
 			children = (
 				8B34FDED24083B710070C5BF /* CatalystSparkle */,
 				8B5E7E8423F6BB3500087E15 /* SparkleBridge */,
+				8B34FE2824084E070070C5BF /* TestServer */,
 				8B3E64A423EAE62D00B28168 /* Products */,
 				8B5E7E7823F6BA8400087E15 /* Frameworks */,
+				8B600FB524091C060037ADA0 /* SparkleBridge copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +199,7 @@
 			children = (
 				8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */,
 				8B34FDEC24083B710070C5BF /* CatalystSparkle.app */,
+				8B600FB424091C060037ADA0 /* TestServer.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,7 +220,6 @@
 				8B34FE0524083EE60070C5BF /* Plugin.swift */,
 				8B5E7E9223F6C0B600087E15 /* BridgingHeader.h */,
 				8B5E7E8523F6BB3500087E15 /* Info.plist */,
-				8B34FE2824084E070070C5BF /* Test Support */,
 			);
 			path = SparkleBridge;
 			sourceTree = "<group>";
@@ -189,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8B600FBC24091C9E0037ADA0 /* PBXTargetDependency */,
 				8B34FE0124083B800070C5BF /* PBXTargetDependency */,
 			);
 			name = CatalystSparkle;
@@ -214,6 +264,26 @@
 			);
 			productName = AppKitBridge;
 			productReference = 8B5E7E8323F6BB3500087E15 /* SparkleBridge.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8B600FA324091C060037ADA0 /* TestServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B600FB124091C060037ADA0 /* Build configuration list for PBXNativeTarget "TestServer" */;
+			buildPhases = (
+				8B600FA424091C060037ADA0 /* Sources */,
+				8B600FA924091C060037ADA0 /* Frameworks */,
+				8B600FAB24091C060037ADA0 /* Resources */,
+				8B600FAF24091C060037ADA0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestServer;
+			packageProductDependencies = (
+			);
+			productName = AppKitBridge;
+			productReference = 8B600FB424091C060037ADA0 /* TestServer.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -252,6 +322,7 @@
 			targets = (
 				8B34FDEB24083B710070C5BF /* CatalystSparkle */,
 				8B5E7E8223F6BB3500087E15 /* SparkleBridge */,
+				8B600FA324091C060037ADA0 /* TestServer */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +332,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B600F9C240918330037ADA0 /* test_app_only_dsa_pub.pem in Resources */,
+				8B600FBD24091CA90037ADA0 /* TestServer.bundle in Resources */,
 				8B34FE0F2408464E0070C5BF /* SparkleBridge.bundle in Resources */,
 				8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */,
 				8B34FDF824083B720070C5BF /* Preview Assets.xcassets in Resources */,
@@ -272,6 +345,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B600FA124091AE60037ADA0 /* sparkletestcast.xml in Resources */,
+				8B600F9F24091A400037ADA0 /* sign_update in Resources */,
+				8B600F9D24091A1D0037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B600FAB24091C060037ADA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B600FAC24091C060037ADA0 /* sparkletestcast.xml in Resources */,
+				8B600FAD24091C060037ADA0 /* sign_update in Resources */,
+				8B600FAE24091C060037ADA0 /* test_app_only_dsa_priv_dont_ever_do_this_for_real.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,10 +380,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B34FE0624083EE60070C5BF /* BridgingDriver.swift in Sources */,
 				8B34FE2B24084E170070C5BF /* SUTestWebServer.m in Sources */,
-				8B34FE2724084D0C0070C5BF /* Tester.m in Sources */,
-				8B34FE0724083EE60070C5BF /* Plugin.swift in Sources */,
+				8B600FBF24091E630037ADA0 /* BridgingDriver.swift in Sources */,
+				8B600FC024091E6A0037ADA0 /* Plugin.swift in Sources */,
+				8B34FE2724084D0C0070C5BF /* TestServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B600FA424091C060037ADA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B600FA624091C060037ADA0 /* SUTestWebServer.m in Sources */,
+				8B600FA724091C060037ADA0 /* TestServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +404,12 @@
 			platformFilter = maccatalyst;
 			target = 8B5E7E8223F6BB3500087E15 /* SparkleBridge */;
 			targetProxy = 8B34FE0024083B800070C5BF /* PBXContainerItemProxy */;
+		};
+		8B600FBC24091C9E0037ADA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = maccatalyst;
+			target = 8B600FA324091C060037ADA0 /* TestServer */;
+			targetProxy = 8B600FBB24091C9E0037ADA0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -525,6 +626,45 @@
 			};
 			name = Release;
 		};
+		8B600FB224091C060037ADA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "SparkleBridge copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = SparkleBridge/BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8B600FB324091C060037ADA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "SparkleBridge copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.sparklebridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = SparkleBridge/BridgingHeader.h;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,6 +691,15 @@
 			buildConfigurations = (
 				8B5E7E8723F6BB3500087E15 /* Debug */,
 				8B5E7E8823F6BB3500087E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B600FB124091C060037ADA0 /* Build configuration list for PBXNativeTarget "TestServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B600FB224091C060037ADA0 /* Debug */,
+				8B600FB324091C060037ADA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

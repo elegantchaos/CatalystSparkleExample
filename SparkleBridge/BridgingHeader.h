@@ -7,6 +7,5 @@
 #define SparkleBridge_Bridging_Header_h
 
 #import "SparkleBridge.h"
-#import "Tester.h"
 
 #endif /* SparkleBridge_Bridging_Header_h */

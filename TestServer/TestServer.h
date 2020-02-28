@@ -5,7 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Tester : NSObject
+@protocol TestServerPlugin
+- (void)setup;
+- (void)tearDown;
+@end
+
+@interface TestServer : NSObject<TestServerPlugin>
 - (void)setup;
 - (void)tearDown;
 @end

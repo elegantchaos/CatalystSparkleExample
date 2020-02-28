@@ -3,10 +3,13 @@
 //  All code (c) 2020 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-#ifndef CatalystSparkle_Bridging_Header_h
-#define CatalystSparkle_Bridging_Header_h
+#ifndef SparkleBridge_Bridging_Header_h
+#define SparkleBridge_Bridging_Header_h
 
-#import "SparkleBridge.h"
 #import "TestServer.h"
 
-#endif /* CatalystSparkle_Bridging_Header_h */
+#if TESTING
+#import "SparkleBridgeTesting.h"
+#endif
+
+#endif /* SparkleBridge_Bridging_Header_h */

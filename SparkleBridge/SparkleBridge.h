@@ -39,10 +39,6 @@ typedef struct {
 
 @protocol SparkleBridgePlugin <NSObject>
 - (BOOL)setupWithBridge: (id<SparkleBridge>)bridge error:(NSError **)error;
-
-// test-only
-- (void)setupTester;
-- (void)tearDownTester;
 @end
 
 NS_ASSUME_NONNULL_END

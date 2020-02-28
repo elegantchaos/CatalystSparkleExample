@@ -24,6 +24,8 @@
 	<false/>
 	<key>SUPublicDSAKeyFile</key>
 	<string>test_app_only_dsa_pub.pem</string>
+	<key>SUFeedURL</key>
+	<string>http://localhost:1337/sparkletestcast.xml</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

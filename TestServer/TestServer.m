@@ -5,16 +5,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Tester.h"
+#import "TestServer.h"
 #import "SUTestWebServer.h"
 
-@interface Tester ()
+@interface TestServer ()
 
 @property (nonatomic) SUTestWebServer *webServer;
 
 @end
 
-@implementation Tester
+@implementation TestServer
 
 static NSString * const UPDATED_VERSION = @"2.0";
 
@@ -103,12 +103,13 @@ static NSString * const UPDATED_VERSION = @"2.0";
             
             // Don't ever do this at home, kids (seriously)
             // (that is, including the private key inside of your application)
-            NSString *privateKeyPath = [mainBundle pathForResource:@"test_app_only_dsa_priv_dont_ever_do_this_for_real" ofType:@"pem"];
+            NSBundle *pluginBundle = [NSBundle bundleForClass:TestServer.self];
+            NSString *privateKeyPath = [pluginBundle pathForResource:@"test_app_only_dsa_priv_dont_ever_do_this_for_real" ofType:@"pem"];
             assert(privateKeyPath != nil);
             
             // Sign our update
             NSTask *signUpdateTask = [[NSTask alloc] init];
-            NSString *signUpdatePath = [mainBundle pathForResource:@"sign_update" ofType:@""];
+            NSString *signUpdatePath = [pluginBundle pathForResource:@"sign_update" ofType:@""];
             assert(signUpdatePath != nil);
             signUpdateTask.launchPath = signUpdatePath;
             
@@ -144,7 +145,7 @@ static NSString * const UPDATED_VERSION = @"2.0";
             // Copy our appcast over to the server directory
             NSURL *appcastDestinationURL = [[serverDirectoryURL URLByAppendingPathComponent:appcastName] URLByAppendingPathExtension:appcastExtension];
             NSError *copyAppcastError = nil;
-            NSURL *appcastURL = [mainBundle URLForResource:appcastName withExtension:appcastExtension];
+            NSURL *appcastURL = [pluginBundle URLForResource:appcastName withExtension:appcastExtension];
             assert(appcastURL != nil);
             if (![fileManager copyItemAtURL:appcastURL toURL:appcastDestinationURL error:&copyAppcastError]) {
                 NSLog(@"Failed to copy appcast into cache directory with error %@", copyAppcastError);
