@@ -145,7 +145,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     
     override func showReady(toInstallAndRelaunch installUpdateHandler: @escaping UpdateStatusCallback) {
         print("showReady")
-        status = "Restarting..."
+        status = "Update Ready To Install."
         installCallback = installUpdateHandler
     }
     

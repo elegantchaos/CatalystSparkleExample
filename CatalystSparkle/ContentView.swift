@@ -33,7 +33,7 @@ struct ContentView: View {
             Spacer()
             
             if driver.hasBeenUpdated {
-                Text("This Is The Update!").font(.largeTitle)
+                Text("This Is The Updated Version!").font(.largeTitle)
             }
             
             ButtonViews(driver: driver)

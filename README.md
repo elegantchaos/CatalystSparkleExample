@@ -16,8 +16,6 @@ Eventually I plan to make the plugin (and glue code) into a library that your ap
 
 At that point I'll probably move the example application out of here and into its own separate repository. It will then use the plugin library just like any other app.
 
-**Disclaimer**: *currently this project is working right up until the point where it tries to run the Sparkle installer. It downloads and update and decompresses it, but then falls over when trying to install. The code here is taken from another project (where it was first developed), and that project is working fine - so I'm confident that the approach taken here is valid. I've obviously just done something stupid whilst trying to generalise the Sparkle code for this example. I'll track down the problem eventually, but in the meantime I figured I might as well put this example up here, as it may be enough to help people work out what they need to do. If you fix the launcher error before I do, please let me know (and send me a pull request!).* 
-
 ## The Basic Plan
 
 Create a plugin which your Catalyst app loads.
