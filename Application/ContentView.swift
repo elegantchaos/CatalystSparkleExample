@@ -34,9 +34,9 @@ struct ContentView: View {
             
             if driver.hasBeenUpdated {
                 Text("This Is The Updated Version!").font(.largeTitle)
+            } else {
+                ButtonViews(driver: driver)
             }
-            
-            ButtonViews(driver: driver)
             
         }.padding()
     }
