@@ -88,7 +88,6 @@
 		8B34FE09240843000070C5BF /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8B34FE0A240843C20070C5BF /* SparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkleDriver.swift; path = Application/SparkleDriver.swift; sourceTree = SOURCE_ROOT; };
 		8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalystSparkleDriver.swift; sourceTree = "<group>"; };
-		8B34FE10240849060070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUTestWebServer.h; path = Dependencies/Sparkle/TestApplication/SUTestWebServer.h; sourceTree = SOURCE_ROOT; };
 		8B34FE2424084ADB0070C5BF /* TestServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestServer.h; sourceTree = "<group>"; };
 		8B34FE2524084BB50070C5BF /* TestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestServer.m; sourceTree = "<group>"; };
 		8B34FE2924084E170070C5BF /* SUTestWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTestWebServer.h; sourceTree = "<group>"; };
@@ -146,7 +145,6 @@
 				8B34FDF224083B710070C5BF /* ContentView.swift */,
 				8B34FE0A240843C20070C5BF /* SparkleDriver.swift */,
 				8B34FE09240843000070C5BF /* BridgingHeader.h */,
-				8B34FE10240849060070C5BF /* SUTestWebServer.h */,
 				8B34FDF424083B720070C5BF /* Assets.xcassets */,
 				8B34FDF924083B720070C5BF /* LaunchScreen.storyboard */,
 				8B34FDFC24083B720070C5BF /* Info.plist */,

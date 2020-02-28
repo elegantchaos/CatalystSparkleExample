@@ -5,6 +5,6 @@
       location = "container:CatalystSparkle.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Dependencies/Sparkle/Sparkle.xcodeproj">
+      location = "group:Sparkle/Sparkle.xcodeproj">
    </FileRef>
 </Workspace>
