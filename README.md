@@ -6,6 +6,17 @@ The traditional approach would be to use Sparkle, but that doesn't work out of t
 
 This project illustrates a way to get it working.
 
+## How To Use This Project
+
+This project is a proof of concept. It contains three components: the bridging plugin, an example host application, and a third plugin which runs as a test webserver and allows you to test the Sparkle mechanism locally. 
+
+As things stand, you will probably need to copy bits of this project into your own projects in order to adopt the approach shown here. You'll need to copy/re-create the plugin target, and the parts of the application that load the plugin and implement the `SparkleDriver` protocol. 
+
+Eventually I plan to make the plugin (and glue code) into a library that your app can just adopt. 
+
+At that point I'll probably move the example application out of here and into its own separate repository. It will then use the plugin library just like any other app.
+
+
 ## The Basic Plan
 
 Create a plugin which your Catalyst app loads.
@@ -14,19 +25,21 @@ Have the plugin link with Sparkle and talk to it.
 
 Have the plugin call back to the main app to present the user interface for updates, and pass back user actions to Sparkle.
 
+
 ## The Tricky Details
 
-The plugin links against AppKit and Sparkle, and embeds the Sparkle framework.
+The basic mechanism for bridging the gap between Catalyst and AppKit is to load a plugin. There's [a great blog post](https://www.highcaffeinecontent.com/blog/20190607-Beyond-the-Checkbox-with-Catalyst-and-AppKit) explaining how this all works, so I won't go over that ground again.
 
-The app embeds the plugin (in its `Resources/` folder), and also embeds various Sparkle XPC helpers (in its `XPCServices` folder). 
+In our case, the plugin links against AppKit and Sparkle, and embeds the Sparkle framework.
 
-Because they are targetting different architectures, the app and the plugin get built into different locations (`Debug-maccatalyst` vs `Debug`, for example). As a result, its cleaner to use a script phase to copy over the XPC bits. This script also doubles up as a place to re-sign all the embedded executables, which is essential if you want to notarize your app.
+The Catalyst-based app embeds the plugin (in its `Resources/` folder). The various Sparkle-related keys go into the App's `Info.plist` file, as normal. Similarly, it is the app embeds various Sparkle XPC helpers (in its `XPCServices` folder). 
 
-At runtime, the app loads the plugin and creates an instance of its primary class. This is the object that forms the bridge between the two worlds.
+Because they are targetting different architectures, the app and Sparkle get built into different locations (`Debug-maccatalyst/` vs `Debug/`, for a `Debug` configuration). As a result, its cleaner to use a script phase to copy over the XPC bits. This script also doubles up as a place to re-sign all the embedded executables, which is essential if you want to notarize your app.
 
-There's [a great blog post](https://www.highcaffeinecontent.com/blog/20190607-Beyond-the-Checkbox-with-Catalyst-and-AppKit) explaining how this all works, so I won't go over that ground again.
+At runtime, the app loads the plugin and creates an instance of its primary class. This is the object that forms the bridge between the two worlds. The app then calls a method on this bridge, and passes over to it another object that it has implemented. Methods on this object get called when Sparkle needs to show some user interface. Some of these methods pass callback blocks to the app - it calls these when it needs to pass back user responses to Sparkle.  
 
-## Interface Issues 
+
+## User Interface Issues 
 
 You might hope that we could just use Sparkle's default user interface, and indeed this does work in principle. 
 
@@ -39,14 +52,4 @@ So the alternative solution is to use this mechanism in the plugin, and to forwa
 Clearly, having to make your own user interface for Sparkle is more work, especially given the amount of effort that has been put into localization of Sparkle already. However, it potentially has some advantages too - for example it allows you to use SwiftUI, or to do a funky update-status-in-the-titlebar implementation.
 
 When it comes to opportunities for re-use, there's no reason in the long run why a UIKit or SwiftUI based Sparkle interface could not be developed and shared (either by the Sparkle project, or as a separate resource by someone else).
-
-## About This Project
-
-This project is a proof of concept. It contains three components: the bridging plugin, an example host application, and a third plugin which runs as a test webserver and allows you to test the Sparkle mechanism locally. 
-
-As things stand, you will probably need to copy bits of this project into your own projects in order to adopt the approach shown here. 
-
-Eventually though I plan to make the plugin (and glue code) into a library that your app can just adopt. At that point I'll probably move the example application into a separate repository, and make it a client of this one too.
-
-
 
