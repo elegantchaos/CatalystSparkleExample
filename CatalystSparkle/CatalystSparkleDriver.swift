@@ -9,7 +9,11 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     var installCallback: UpdateStatusCallback?
     var okCallback: (() -> Void)?
     
-    var canCheck = false
+    override init() {
+        let build = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        hasBeenUpdated = build == "2"
+        super.init()
+    }
     
     var expected: UInt64 = 0 {
         didSet {
@@ -28,7 +32,9 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     
     @Published var progress: Double = 0
     @Published var status: String = ""
-    
+    var hasBeenUpdated = false
+    @Published var canCheck = false
+
     var hasUpdate: Bool {
         return updateCallback != nil
     }

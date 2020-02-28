@@ -7,6 +7,7 @@
 
 #import "TestServer.h"
 #import "SUTestWebServer.h"
+#import "SUAdHocCodeSigning.h"
 
 @interface TestServer ()
 
@@ -190,7 +191,8 @@ static NSString * const UPDATED_BUILD = @"2";
 
 - (void)signApplicationIfRequiredAtPath:(NSString *)applicationPath completion:(void (^)(void))completionBlock
 {
-    (void)(applicationPath); // ignore unused warning
+    BOOL ok = [SUAdHocCodeSigning codeSignApplicationAtPath:applicationPath];
+    NSLog(@"signing result %@", ok ? @"ok" : @"failed");
     completionBlock();
 }
 
