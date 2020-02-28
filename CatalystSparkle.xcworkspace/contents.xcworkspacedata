@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:CatalystSparkle.xcodeproj">
+      location = "container:/Users/developer/Projects/CatalystSparkle/CatalystSparkleExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CatalystSparkle/CatalystSparkle.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Sparkle/Sparkle.xcodeproj">

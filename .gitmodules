@@ -1,3 +1,6 @@
 [submodule "Dependencies/Sparkle"]
 	path = Sparkle
 	url = git@github.com:elegantchaos/Sparkle
+[submodule "CatalystSparkle"]
+	path = CatalystSparkle
+	url = git@github.com:elegantchaos/CatalystSparkle.git
