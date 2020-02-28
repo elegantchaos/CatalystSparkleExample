@@ -8,7 +8,7 @@ This project illustrates a way to get it working.
 
 ## How To Use This Project
 
-This project is a proof of concept. It contains three components: the bridging plugin, an example host application, and a third plugin which runs as a test webserver and allows you to test the Sparkle mechanism locally. 
+This project is a proof of concept. It contains three components: the bridging plugin, an example host application, and a third plugin which runs as a test webserver (lifted pretty much whole from Sparkle's own test application), allowing you to test the Sparkle mechanism locally. 
 
 As things stand, you will probably need to copy bits of this project into your own projects in order to adopt the approach shown here. You'll need to copy/re-create the plugin target, and the parts of the application that load the plugin and implement the `SparkleDriver` protocol. 
 
