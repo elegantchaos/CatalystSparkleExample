@@ -6,6 +6,8 @@
 class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     var setupError: NSError?
     var updateCallback: UpdateAlertCallback?
+    var installCallback: UpdateStatusCallback?
+    
     var canCheck = false
     
     var expected: UInt64 = 0 {
@@ -30,7 +32,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
         return updateCallback != nil
     }
     
-    func installUpdate() {
+    func downloadUpdate() {
         updateCallback?(.update)
         updateCallback = nil
     }
@@ -43,6 +45,11 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     func ignoreUpdate() {
         updateCallback?(.later)
         updateCallback = nil
+    }
+    
+    func installUpdate() {
+        installCallback?(.installAndRelaunch)
+        installCallback = nil
     }
     
     override func showCanCheck(forUpdates canCheckForUpdates: Bool) {
@@ -129,7 +136,7 @@ class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     override func showReady(toInstallAndRelaunch installUpdateHandler: @escaping UpdateStatusCallback) {
         print("showReady")
         status = "Restarting..."
-        installUpdateHandler(.installAndRelaunch)
+        installCallback = installUpdateHandler
     }
     
     override func showInstallingUpdate() {

@@ -9,33 +9,70 @@ struct ContentView: View {
     @ObservedObject var driver: CatalystSparkleDriver
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 10) {
+            Spacer()
+            
             if AppDelegate.shared.plugin == nil {
                 Text("Sparkle failed to start up: \(String(describing: driver.setupError))")
-            } else if AppDelegate.shared.testServer == nil {
+            } else {
+                Text("Sparkle bridge connected.")
+            }
+            
+            if AppDelegate.shared.testServer == nil {
                 Text("Test server failed to start up.")
             } else {
-                VStack {
-                    Text("Sparkle bridge working.")
-                    
-                    if driver.canCheck {
-                        Text("Can check for updates.")
-                    }
-                    
-                    if !driver.status.isEmpty {
-                        Text("Sparkle Status: \(driver.status)")
-                    }
-                    
-                    Button(action: { AppDelegate.shared.plugin?.checkForUpdates() }) {
-                        Text("Check")
-                    }
+                Text("Test server connected.")
+            }
+            
+            Spacer().frame(height: 20)
+
+            if !driver.status.isEmpty {
+                Text(driver.status).font(.headline)
+            }
+            
+            Spacer()
+            
+            if driver.canCheck {
+                Button(action: { AppDelegate.shared.plugin?.checkForUpdates() }) {
+                    Text("Check For Updates")
                 }
             }
+            
+            if driver.updateCallback != nil {
+                DownloadView(driver: driver)
+            }
+            
+            if driver.installCallback != nil {
+                InstallView(driver: driver)
+            }
+            
+            Spacer()
             
         }
     }
 }
 
+struct DownloadView: View {
+    @ObservedObject var driver: CatalystSparkleDriver
+    
+    var body: some View {
+        HStack {
+            Button(action: driver.downloadUpdate) { Text("Update") }
+            Button(action: driver.skipUpdate) { Text("Skip") }
+            Button(action: driver.ignoreUpdate) { Text("Later") }
+        }
+    }
+}
+
+struct InstallView: View {
+    @ObservedObject var driver: CatalystSparkleDriver
+    
+    var body: some View {
+        HStack {
+            Button(action: driver.installUpdate) { Text("Install And Restart") }
+        }
+    }
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(driver: CatalystSparkleDriver())
