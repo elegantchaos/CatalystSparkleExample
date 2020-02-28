@@ -12,9 +12,9 @@ This project is a proof of concept. It contains three components: the bridging p
 
 As things stand, you will probably need to copy bits of this project into your own projects in order to adopt the approach shown here. You'll need to copy/re-create the plugin target, and the parts of the application that load the plugin and implement the `SparkleDriver` protocol. 
 
-Eventually I plan to make the plugin (and glue code) into a library that your app can just adopt. 
+Eventually I plan to make the plugin (and glue code) into a separate library that your app can just depend on. 
 
-At that point I'll probably move the example application out of here and into its own separate repository. It will then use the plugin library just like any other app.
+At that point I'll update this example application to depend on that library too.
 
 ## The Basic Plan
 
@@ -72,7 +72,7 @@ This is not because using Sparkle from a plugin doesn't work with it on. It's ju
 
 In general these days you will probably want to turn sandboxing on. 
 
-This means that you'll want to use the `2.x` branch of Sparkle.
+This means that you'll want to use the `2.x` branch of Sparkle (this project is linking to it via a submodule).
 
 When you embed Sparkle and the various Sparkle XPC services in your app, you will also need to arrange to sign them properly; especially if you want to notarize the app.
 
@@ -83,15 +83,26 @@ This script phase can also doubles up as a place to re-sign all the embedded exe
 I'm not doing it in this example, but here's a snippet of the sort of code you'll need:
 
 ```
-codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Updater.app"
-codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A"
-codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_RESOURCES_DIR/SparkleBridge.bundle"
+# By default, use the configured code signing identity for the project/target
+IDENTITY="${EXPANDED_CODE_SIGN_IDENTITY}"
+if [ "$IDENTITY" == "" ]
+then
+    # If a code signing identity is not specified, use ad hoc signing
+    IDENTITY="-"
+fi
+
+
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Updater.app"
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$BUILT_RESOURCES_DIR/AppKitBridge.bundle/Contents/Frameworks/Sparkle.framework/Versions/A"
+codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$BUILT_RESOURCES_DIR/SparkleBridge.bundle"
 
 for name in ${XPCS[@]}
 do
     echo "Re-signing $name"
-    codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$ACTION_STATUS_BUILT_XPCSERVICES_DIR/$name"
+    codesign --verbose --force --deep --options runtime --sign "$IDENTITY" "$BUILT_XPCSERVICES_DIR/$name"
 done
 ```
 
 This script expects the various Sparkle products to be signed already, so you may also have to modify your copy of Sparkle slightly to sign everything with your keys. 
+
+There are probably simpler/cleaner ways to handle all of this. One idea might be to have the script build Sparkle using `xcodebuild`, supplying overrides for the code signing settings. That way you can ensure they get built right first time, without having to modify Sparkle.
