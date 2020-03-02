@@ -6,7 +6,6 @@
 #ifndef CatalystSparkle_Bridging_Header_h
 #define CatalystSparkle_Bridging_Header_h
 
-#import "SparkleBridge.h"
 #import "TestServer.h"
 
 #endif /* CatalystSparkle_Bridging_Header_h */

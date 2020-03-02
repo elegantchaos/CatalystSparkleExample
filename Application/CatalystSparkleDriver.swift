@@ -3,6 +3,8 @@
 //  All code (c) 2020 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+import SparkleBridge
+
 class CatalystSparkleDriver: SparkleDriver, ObservableObject {
     var setupError: NSError?
     var updateCallback: UpdateAlertCallback?
