@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B48937B240D14C400E3E112"
-               BuildableName = "libSparkleBridge.a"
-               BlueprintName = "Bridge"
+               BuildableName = "libSparkleBridgeClient.a"
+               BlueprintName = "SparkleBridgeClient"
                ReferencedContainer = "container:CatalystSparkle/CatalystSparkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B5E7E8223F6BB3500087E15"
-               BuildableName = "Plugin.bundle"
-               BlueprintName = "Plugin"
+               BuildableName = "SparkleBridge.bundle"
+               BlueprintName = "SparkleBridge"
                ReferencedContainer = "container:CatalystSparkle/CatalystSparkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

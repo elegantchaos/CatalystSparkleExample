@@ -4,7 +4,7 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import SwiftUI
-import SparkleBridge
+import SparkleBridgeClient
 
 struct ContentView: View {
     @ObservedObject var driver: CatalystSparkleDriver

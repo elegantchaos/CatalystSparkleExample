@@ -4,7 +4,7 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import UIKit
-import SparkleBridge
+import SparkleBridgeClient
 
 @UIApplicationMain
 
@@ -18,9 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        loadBridge()
+        driver = CatalystSparkleDriver()
+        let result = SparkleBridgeClient.load(with: driver)
+        switch result {
+            case .success(let plugin):
+                self.plugin = plugin
+            case .failure(let error):
+                print(error)
+        }
+        
         loadTestServer()
         return true
     }
@@ -38,24 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    
-    fileprivate func loadBridge() {
-        if let pluginURL = Bundle.main.url(forResource: "SparkleBridge", withExtension: "bundle"), let bundle = Bundle(url: pluginURL) {
-            if let cls = bundle.principalClass as? NSObject.Type {
-                if let instance = cls.init() as? SparkleBridgePlugin {
-                    plugin = instance
-                    driver = CatalystSparkleDriver()
-                    do {
-                        try plugin?.setup(with: driver)
-                    } catch {
-                        driver.setupError = error as NSError
-                    }
-                }
-            }
-        }
-    }
-    
     
     fileprivate func loadTestServer() {
         if let pluginURL = Bundle.main.url(forResource: "TestServer", withExtension: "bundle"), let bundle = Bundle(url: pluginURL) {
