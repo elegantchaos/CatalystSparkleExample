@@ -1,10 +1,12 @@
 # Catalyst + SwiftUI + Sparkle = ?
 
-Now that we can make Mac applications using Catalyst, the question arises of how to distribute updates if we're not in the App Store. Even if we are in the App Store, we might want to be able to distribute beta versions to testers.
+Now that we can target the Mac with our iOS applications using Catalyst, the question arises of how to distribute test versions, and updates.
 
-The traditional approach would be to use Sparkle, but that doesn't work out of the box with a Catalyst app, because some of the API that Sparkle relies on is not available.
+We don't have TestFlight for the Mac, and not everyone wants to distribute their Mac applications via the App Store.
 
-This project illustrates a way to get it working.
+The traditional solution here is [Sparkle](https://sparkle-project.org), but that uses AppKit, which means that it's not compatible with Catalyst.
+
+This project illustrates a way to get Sparkle and a Catalyst-based application working togther in harmony.
 
 ## The Basic Plan
 
