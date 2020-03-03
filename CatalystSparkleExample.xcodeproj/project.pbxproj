@@ -15,8 +15,6 @@
 		8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B34FDF924083B720070C5BF /* LaunchScreen.storyboard */; };
 		8B34FE0E240843EA0070C5BF /* CatalystSparkleDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE0D240843EA0070C5BF /* CatalystSparkleDriver.swift */; };
 		8B3F0ABE240971F800E0F779 /* SUAdHocCodeSigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F0ABC240971F800E0F779 /* SUAdHocCodeSigning.m */; };
-		8B3F0AD4240991DC00E0F779 /* SparkleBridge.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B3F0AD3240991DC00E0F779 /* SparkleBridge.bundle */; };
-		8B48938C240D1FA800E3E112 /* libSparkleBridgeClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B48938B240D1FA800E3E112 /* libSparkleBridgeClient.a */; platformFilter = maccatalyst; };
 		8B600FA624091C060037ADA0 /* SUTestWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2A24084E170070C5BF /* SUTestWebServer.m */; };
 		8B600FA724091C060037ADA0 /* TestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34FE2524084BB50070C5BF /* TestServer.m */; };
 		8B600FAA24091C060037ADA0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBFAA942403F8E80091157A /* Sparkle.framework */; };
@@ -26,6 +24,8 @@
 		8B600FBD24091CA90037ADA0 /* TestServer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FB424091C060037ADA0 /* TestServer.bundle */; platformFilter = maccatalyst; };
 		8B600FC224091F680037ADA0 /* test_app_only_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FC124091F680037ADA0 /* test_app_only_dsa_pub.pem */; platformFilter = maccatalyst; };
 		8B600FC624092FF50037ADA0 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8B600FC524092FF50037ADA0 /* appcast.xml */; };
+		8B736FA5240EA9B40025D583 /* SparkleBridgeClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B736FA3240EA8E70025D583 /* SparkleBridgeClient.framework */; platformFilter = maccatalyst; };
+		8B736FA6240EA9B40025D583 /* SparkleBridgeClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B736FA3240EA8E70025D583 /* SparkleBridgeClient.framework */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,17 @@
 			files = (
 				8B600FB024091C060037ADA0 /* Sparkle.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B736FA7240EA9B40025D583 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B736FA6240EA9B40025D583 /* SparkleBridgeClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -71,7 +82,6 @@
 		8B3F0ABB24095BC600E0F779 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; wrapsLines = 1; };
 		8B3F0ABC240971F800E0F779 /* SUAdHocCodeSigning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAdHocCodeSigning.m; sourceTree = "<group>"; };
 		8B3F0ABD240971F800E0F779 /* SUAdHocCodeSigning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAdHocCodeSigning.h; sourceTree = "<group>"; };
-		8B3F0AD3240991DC00E0F779 /* SparkleBridge.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SparkleBridge.bundle; path = ../Debug/SparkleBridge.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B489384240D157300E3E112 /* libSparkleBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSparkleBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B489389240D1F8A00E3E112 /* libSparkleBridgeClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSparkleBridgeClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B48938B240D1FA800E3E112 /* libSparkleBridgeClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSparkleBridgeClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +91,7 @@
 		8B600FB724091C4A0037ADA0 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		8B600FC124091F680037ADA0 /* test_app_only_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_app_only_dsa_pub.pem; sourceTree = "<group>"; };
 		8B600FC524092FF50037ADA0 /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
+		8B736FA3240EA8E70025D583 /* SparkleBridgeClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SparkleBridgeClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBFAA942403F8E80091157A /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B48938C240D1FA800E3E112 /* libSparkleBridgeClient.a in Frameworks */,
+				8B736FA5240EA9B40025D583 /* SparkleBridgeClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +167,6 @@
 				8B34FE2824084E070070C5BF /* TestServer */,
 				8B3E64A423EAE62D00B28168 /* Products */,
 				8B5E7E7823F6BA8400087E15 /* Frameworks */,
-				8B3F0AD3240991DC00E0F779 /* SparkleBridge.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +182,7 @@
 		8B5E7E7823F6BA8400087E15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B736FA3240EA8E70025D583 /* SparkleBridgeClient.framework */,
 				8B48938B240D1FA800E3E112 /* libSparkleBridgeClient.a */,
 				8B489389240D1F8A00E3E112 /* libSparkleBridgeClient.a */,
 				8B489384240D157300E3E112 /* libSparkleBridge.a */,
@@ -191,6 +202,7 @@
 				8B34FDE924083B710070C5BF /* Frameworks */,
 				8B34FDEA24083B710070C5BF /* Resources */,
 				8B600FC4240920DD0037ADA0 /* Copy XPCs and Re-sign All The Things */,
+				8B736FA7240EA9B40025D583 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B600FC224091F680037ADA0 /* test_app_only_dsa_pub.pem in Resources */,
-				8B3F0AD4240991DC00E0F779 /* SparkleBridge.bundle in Resources */,
 				8B600FBD24091CA90037ADA0 /* TestServer.bundle in Resources */,
 				8B34FDFB24083B720070C5BF /* LaunchScreen.storyboard in Resources */,
 				8B34FDF824083B720070C5BF /* Preview Assets.xcassets in Resources */,

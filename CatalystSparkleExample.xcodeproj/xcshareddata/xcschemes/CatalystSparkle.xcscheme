@@ -28,23 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B48937B240D14C400E3E112"
-               BuildableName = "libSparkleBridgeClient.a"
+               BlueprintIdentifier = "8B48939F240D579600E3E112"
+               BuildableName = "SparkleBridgeClient.framework"
                BlueprintName = "SparkleBridgeClient"
-               ReferencedContainer = "container:CatalystSparkle/CatalystSparkle.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B5E7E8223F6BB3500087E15"
-               BuildableName = "SparkleBridge.bundle"
-               BlueprintName = "SparkleBridge"
                ReferencedContainer = "container:CatalystSparkle/CatalystSparkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

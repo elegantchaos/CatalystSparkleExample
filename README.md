@@ -23,7 +23,7 @@ This project is a proof of concept containing an example application.
 
 The actual code for bridging Sparkle is contained in a sub-project - CatalystSparkle. 
 
-The CatalystSparkle project supplies a plugin (`SparkleBridge.bundle`) that you include in your application's `Resources/` folder, and a static library  (`libSparkleBridgeClient`) which you use in your host application.
+The CatalystSparkle project supplies a framework (`SparkleBridge.bundle`) that you include in your application's `Resources/` folder, and a static library  (`libSparkleBridgeClient`) which you use in your host application.
 
 To use this approach in your own application, you just need the `CatalystSparkle` project from the submodule. You don't need anything from this repository.
 
