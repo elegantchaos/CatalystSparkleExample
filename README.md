@@ -19,15 +19,13 @@ See the [CatalystSparkle project](https://github.com/elegantchaos/CatalystSparkl
 
 ## How To Use This Project
 
-This project is a proof of concept containing an example application.
-
-The actual code for bridging Sparkle is contained in a sub-project - CatalystSparkle. 
-
-The CatalystSparkle project supplies a framework (`SparkleBridge.bundle`) that you include in your application's `Resources/` folder, and a static library  (`libSparkleBridgeClient`) which you use in your host application.
+The actual code for bridging Sparkle is contained in a sub-project - CatalystSparkle.  The CatalystSparkle project supplies a framework (`SparkleBridgeClient.framework`) that you embed in your application. This in turn contains the bridging plugin, and code to load it. The plugin in turn embeds `Sparkle .framework`.
 
 To use this approach in your own application, you just need the `CatalystSparkle` project from the submodule. You don't need anything from this repository.
 
-For the purposes of testing, this project also contains another target which runs as a test webserver. The code for this is lifted pretty much whole from Sparkle's own test application, and wrapped up as a plugin. 
+The code in this project is a proof of concept example application.
+
+For the purposes of testing, the project also contains another target which runs as a test webserver. The code for this is lifted pretty much whole from Sparkle's own test application, and wrapped up as a plugin. 
 
 
 ## The Test Server
